@@ -31,7 +31,7 @@ export default function LoginPage({ onLoggedIn }) {
   }
 
   // Fills the form with a demo user - handy when showing the project.
-  const fillDemo = (email) => setForm({ ...form, email, password: 'Customer123!' });
+  const fillDemo = (email, password = 'Customer123!') => setForm({ ...form, email, password });
 
   return (
     <section className="login">
@@ -42,6 +42,7 @@ export default function LoginPage({ onLoggedIn }) {
           <span>Try a demo user</span>
           <button type="button" onClick={() => fillDemo('dana@hallplaces.com')}>Dana</button>
           <button type="button" onClick={() => fillDemo('ron@hallplaces.com')}>Ron</button>
+          <button type="button" onClick={() => fillDemo('admin@hallplaces.com', 'Admin123!')}>Admin</button>
         </div>
       </div>
 

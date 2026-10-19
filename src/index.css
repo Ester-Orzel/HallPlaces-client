@@ -179,11 +179,32 @@ input, select { font: inherit; padding: 10px 14px; border: 1.5px solid var(--lin
 .login form label input { display: block; width: 100%; margin-top: 6px; font-weight: 400; }
 .login .primary { width: 100%; padding: 12px; margin: 6px 0 16px; }
 
+/* ---------- admin ---------- */
+.admin-card { display: flex; flex-direction: column; gap: 14px; max-width: 640px; padding: 26px 28px; margin-bottom: 26px;
+              background: var(--white); border: 1.5px solid var(--line); border-radius: 24px; }
+.admin-card h2 { font-size: 1.4rem; }
+.admin-card label { display: block; font-weight: 700; font-size: .95rem; }
+.admin-card label input, .admin-card label select { display: block; width: 100%; margin-top: 6px; font-weight: 400; }
+.admin-card .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.admin-card fieldset { border: 1.5px solid var(--line); border-radius: 14px; padding: 10px 16px 14px; }
+.admin-card legend { font-weight: 700; padding: 0 6px; }
+.checks { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.admin-card .checks label.inline { display: flex; font-weight: 400; margin: 0; }
+.admin-card .checks label.inline input { display: inline; width: auto; margin: 0; }
+.admin-card .primary { align-self: flex-start; }
+.admin-card .alert { margin: 0; }
+.hint { color: var(--muted); font-size: .9rem; }
+.admin-list { list-style: none; margin: 0; padding: 0; max-width: 640px; display: grid; gap: 10px; }
+.admin-list li { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 12px 18px;
+                 background: var(--white); border: 1.5px solid var(--line); border-radius: 16px; }
+.admin-list li > div { display: flex; flex-direction: column; min-width: 0; }
+
 @media (max-width: 760px) {
   .hero { grid-template-columns: minmax(0, 1fr); padding: 32px 22px; }
   .hero-row { gap: 4px; }
   .hero-row i { width: 19px; height: 18px; border-bottom-width: 3px; }
   .login { grid-template-columns: 1fr; }
+  .admin-card .two { grid-template-columns: 1fr; }
   .event-head { padding: 28px 24px; }
   .ticket { flex-wrap: wrap; }
   .stub { width: 84px; }

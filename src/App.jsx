@@ -4,9 +4,10 @@ import LoginPage from './pages/LoginPage';
 import EventsPage from './pages/EventsPage';
 import EventPage from './pages/EventPage';
 import MyBookingsPage from './pages/MyBookingsPage';
+import AdminPage from './pages/AdminPage';
 
 // Navigation without a router: the current screen is just a piece of state.
-// { name: 'events' } | { name: 'event', id } | { name: 'login' } | { name: 'bookings' }
+// { name: 'events' } | { name: 'event', id } | { name: 'login' } | { name: 'bookings' } | { name: 'admin' }
 export default function App() {
   const [user, setUser] = useState(loadAuth);
   const [screen, setScreen] = useState({ name: 'events' });
@@ -46,6 +47,7 @@ export default function App() {
         <nav>
           <button onClick={() => setScreen({ name: 'events' })}>Events</button>
           {user && <button onClick={() => setScreen({ name: 'bookings' })}>My bookings</button>}
+          {user?.role === 'Admin' && <button onClick={() => setScreen({ name: 'admin' })}>Manage</button>}
           {user ? (
             <>
               <span className="who">{user.fullName}</span>
@@ -78,6 +80,8 @@ export default function App() {
           />
         )}
         {screen.name === 'bookings' && user && <MyBookingsPage />}
+        {/* Only for an Admin. The server checks the role too, so hiding the button is not the security. */}
+        {screen.name === 'admin' && user?.role === 'Admin' && <AdminPage />}
       </main>
     </>
   );
